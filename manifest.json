@@ -1,0 +1,12 @@
+{
+   "name": "Platform Indicators",
+   "description": "Displays platform indicator icons next to names.",
+   "authors": [
+      {
+         "name": "eternal",
+         "id": "263689920210534400"
+      }
+   ],
+   "version": "1.0.0",
+   "id": "eternal.platform-indicators"
+}

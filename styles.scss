@@ -1,0 +1,43 @@
+.bsi-client-statuses, .bsi-statusIcon {
+  display: inline;
+}
+
+.bsi-client-statuses svg, .bsi-statusIcon {
+  color: var(--channels-default);
+  margin-left: 4px;
+  vertical-align: -.5px;
+}
+
+.status-12NUUC ~ .divider-q3P9HC {
+  margin-left: 0;
+}
+
+.status-12NUUC ~ .bsi-client-statuses {
+  margin-right: 8px;
+  display: flex;
+
+  .icon-1dGlZy:first-of-type {
+    margin-left: 0;
+  }
+
+  .icon-1dGlZy {
+    margin-left: 6px;
+  }
+}
+
+.status-12NUUC ~ .bsi-statusIcon {
+  margin-right: 6px;
+  margin-left: 0;
+}
+
+.peopleListItem-u6dGxF .userInfo-2WpsYG {
+  .bsi-client-statuses, .bsi-statusIcon {
+    visibility: hidden;
+  }
+
+  &.hovered-1EO01j {
+    .bsi-client-statuses, .bsi-statusIcon {
+      visibility: visible;
+    }
+  }
+}
