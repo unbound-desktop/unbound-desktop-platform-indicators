@@ -35,7 +35,7 @@ export default class extends Plugin {
    start() {
       this.unstyle = appendCSS(this.id, require('./styles'));
 
-      Patcher.after(Store, 'isMobileOnline', () => {
+      Patcher.instead(Store, 'isMobileOnline', () => {
          return false;
       });
 
