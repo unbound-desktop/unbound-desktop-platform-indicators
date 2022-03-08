@@ -1,8 +1,8 @@
 import Plugin from '@structures/plugin';
 
 import { appendCSS, findInReactTree } from '@utilities';
+import { Flux, React } from '@webpack/common';
 import { bulk, filters } from '@webpack';
-import { Flux } from '@webpack/common';
 import { create } from '@patcher';
 
 import AnimatedStatus from './components/AnimatedStatus';
