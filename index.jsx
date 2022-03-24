@@ -1,9 +1,10 @@
 import Plugin from '@structures/plugin';
 
-import { appendCSS, findInReactTree } from '@utilities';
 import { Flux, React } from '@webpack/common';
+import { findInReactTree } from '@utilities';
 import { bulk, filters } from '@webpack';
 import { create } from '@patcher';
+import DOM from '@utilities/dom';
 
 import AnimatedStatus from './components/AnimatedStatus';
 import ClientStatuses from './components/ClientStatuses';
@@ -33,7 +34,7 @@ const [
 
 export default class extends Plugin {
    start() {
-      this.unstyle = appendCSS(this.id, require('./styles'));
+      this.style = DOM.appendStyle(this.id, require('./styles'));
 
       Patcher.instead(Store, 'isMobileOnline', () => {
          return false;
@@ -118,7 +119,7 @@ export default class extends Plugin {
    }
 
    stop() {
-      if (this.unstyle) this.unstyle();
+      if (this.style) this.style.remove();
       Patcher.unpatchAll();
    }
 };
