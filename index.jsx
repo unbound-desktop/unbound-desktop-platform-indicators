@@ -3,6 +3,7 @@ import Plugin from '@structures/plugin';
 import { Flux, React } from '@webpack/common';
 import { findInReactTree } from '@utilities';
 import { bulk, filters } from '@webpack';
+import { Divider } from '@components';
 import { create } from '@patcher';
 import DOM from '@utilities/dom';
 
@@ -17,7 +18,6 @@ const [
    Status,
    Colors,
    Users,
-   Dividers,
    PrivateChannel,
    MemberListItem,
    Store
@@ -26,7 +26,6 @@ const [
    filters.byDisplayName('FluxContainer(Status)'),
    filters.byProps('isValidHex'),
    filters.byProps('getUser', 'getCurrentUser'),
-   filters.byProps('transparent', 'divider'),
    filters.byDisplayName('PrivateChannel'),
    filters.byDisplayName('MemberListItem'),
    filters.byProps('isMobileOnline')
@@ -54,7 +53,10 @@ export default class extends Plugin {
             }
 
             res.push(...[
-               <div className={Dividers?.divider} />,
+               <Divider
+                  direction={Divider.Directions.HORIZONTAL}
+                  margin='0 8px 0 0'
+               />,
                <ConnectedClientStatuses
                   user={Users.getUser(self.props.userId)}
                />
