@@ -1,3 +1,4 @@
+import { connectComponent } from '@api/settings';
 import { React, Flux } from '@webpack/common';
 import { findByProps } from '@webpack';
 import { uuid } from '@utilities';
@@ -48,6 +49,4 @@ const AnimatedStatus = React.memo(props => {
    }));
 });
 
-export default Flux.connectStores([unbound.apis.settings.store], () => ({
-   ...unbound.apis.settings.makeStore('better-status-indicators')
-}))(AnimatedStatus);
+export default connectComponent(AnimatedStatus, 'better-status-indicators');;
