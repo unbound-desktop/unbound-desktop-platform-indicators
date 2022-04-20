@@ -3,6 +3,7 @@ import Plugin from '@structures/plugin';
 import { Flux, React } from '@webpack/common';
 import { findInReactTree } from '@utilities';
 import { bulk, filters } from '@webpack';
+import { Users } from '@webpack/stores';
 import { Divider } from '@components';
 import { create } from '@patcher';
 import DOM from '@utilities/dom';
@@ -16,16 +17,12 @@ const Patcher = create('platform-indicators');
 const [
    StatusStore,
    Status,
-   Colors,
-   Users,
    PrivateChannel,
    MemberListItem,
    Store
 ] = bulk(
    filters.byProps('getStatusColor'),
    filters.byDisplayName('FluxContainer(Status)'),
-   filters.byProps('isValidHex'),
-   filters.byProps('getUser', 'getCurrentUser'),
    filters.byDisplayName('PrivateChannel'),
    filters.byDisplayName('MemberListItem'),
    filters.byProps('isMobileOnline')
