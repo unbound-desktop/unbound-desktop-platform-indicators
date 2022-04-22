@@ -38,6 +38,7 @@ export default class extends Plugin {
 
       const ConnectedClientStatuses = Flux.connectStores([unbound.apis.settings.store], () => this.settings)(ClientStatuses);
       Patcher.after(Status.prototype, 'render', (self, args, res) => {
+         if (!res || !res.type) return;
          const props = res.props;
          res = res.type(props);
 
