@@ -44,20 +44,21 @@ export default class extends Plugin {
          const tooltip = res.props.children(props);
          tooltip.props.children.type = AnimatedStatus;
 
-         if (props.status !== 'offline') {
+         const status = tooltip.props.children;
+         if (status.props.status !== 'offline') {
             if (!Array.isArray(res)) {
                res = [res];
             }
 
-            res.push(...[
+            res.push(<>
                <Divider
                   direction={Divider.Directions.HORIZONTAL}
                   margin='0 8px 0 0'
-               />,
+               />
                <ConnectedClientStatuses
                   user={Users.getUser(self.props.userId)}
                />
-            ]);
+            </>);
          }
 
          return res;
